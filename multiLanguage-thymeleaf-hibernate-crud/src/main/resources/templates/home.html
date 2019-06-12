@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>home page</title>
+<link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+	<div th:text="#{english.hello}">
+			 <button class="b1">sign up</button>
+			 <button class="b2">login</button>
+	 </div>
+	 <a th:href="@{/?lang=en}">english</a>||<a th:href="@{/?lang=AR}">العربية</a>
+	<br>
+	<br>
+	<a th:href="@{/getPersons}" th:text="#{english.show}">
+		All Persons page
+	</a> 
+	<br>
+	<br>
+	<a th:href="@{/getPersons/add}" th:text="#{english.editL}">
+		Add other Person
+	</a>
+	<br>
+	<br>
+	<a href="https://www.filgoal.com/">في الجول</a>
+</body>
+</html>

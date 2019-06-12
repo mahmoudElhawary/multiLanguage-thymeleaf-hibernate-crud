@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="#{english.title}">articles page</title>
+<link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+	<div th:text="#{english.hello}">hello our dear customers</div><a th:href="@{/getPersons?lang=en}">english</a>||<a th:href="@{/getPersons?lang=AR}">العربية</a>
+	<table class="table">
+		<tr>
+			<th th:text="#{english.id}">id</th>
+			<th th:text="#{english.fullName}">fullName</th>
+			<th th:text="#{english.BD}">Birth-Date</th>
+			<th th:text="#{english.Action}">Action</th>
+		</tr>
+		<tr th:each="personVar :${person}" th:object="${personVar}">
+			<td th:text="*{id}"></td>
+			<td th:text="*{fullName}"></td>
+			<td th:text="*{BD}"></td>
+			<td>
+				<a href="#" th:href="@{/getPersons/remove/{id}(id=*{id})}"
+				onclick="return confirm('Are you sure to delete this person ?') ;" 
+				th:text="#{english.delete}">delete</a>
+				|| <a href="#" th:href="@{/getPersons/edite/{id}(id=*{id})}"
+				th:text="#{english.edit}" >edit</a>
+			</td>
+		</tr>
+	</table>
+	
+	<a th:href="@{/getPersons/add}" th:text="#{english.editL}">
+		Add other Person
+	</a>
+	<br>
+	<br>
+	<a th:href="@{/}" th:text="#{english.homeL}">
+		home
+	</a> 
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>articles page</title>
+<link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+	
+	<div th:text="#{english.hello}">hello ... please enter your data</div>  <a th:href="@{/getPersons/add?lang=en}">english</a>||<a th:href="@{/getPersons/add?lang=AR}">العربية</a>
+	<form th:action="@{/getPersons/save}" th:object="${person}"
+		method="post" enctype="multipart/form-data">
+
+		<div class="myform">
+			<label th:text="#{english.fullName}">fullName</label> 
+			<input class="input1" type="text"th:field="*{fullName}" /> 
+			<p th:if="${# fields.hasErrors('fullName') }" th:errors="*{fullName}" th:text="check your name"></p>
+			<br>
+			<label th:text="#{english.BD}">age </label><input class="input1" type="text" th:field="*{BD}" /> <br>
+			<input class="input2" type="submit" th:text="#{english.ADD}"/>
+		</div>			
+			
+	</form>
+
+	<a th:href="@{/getPersons/add}" th:text="#{english.editL}">
+		Add other Person
+	</a>
+	<br>
+	<br>
+	<a th:href="@{/}" th:text="#{english.homeL}">
+		home
+	</a> 
+</body>
+</html>

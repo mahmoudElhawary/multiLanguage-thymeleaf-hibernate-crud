@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>update page</title>
+<link rel="stylesheet" href="/css/home.css" />
+</head>
+<body>
+
+	<div>hello ... please update your data</div>
+	<form th:action="@{/getPersons/edit}" th:object="${person}"
+		method="post" enctype="multipart/form-data">
+
+		<div class="myform">
+			<label th:text="#{english.id}">id</label> <input class="input1" type="text"th:field="*{id}" /> <br>
+			<label th:text="#{english.fullName}">fullName</label> <input class="input1" type="text"th:field="*{fullName}" /> <br>
+			<label th:text="#{english.BD}">age </label><input class="input1" type="text" th:field="*{BD}" /> <br>
+			<input class="input2" type="submit" value="update" th:text="#{english.edit}"/>
+		</div>			
+			
+	</form>
+
+	<a th:href="@{/getPersons/add}"> Add other Person </a>
+	<br>
+	<br>
+	<a th:href="@{/}"> home </a>
+</body>
+</html>
